@@ -2,7 +2,7 @@ import React from "react"
 
 function AudioPanel() {
     return (
-        <div>
+        <div id="audio_panel">
             <p>AudioPanel</p>
         </div>
     )

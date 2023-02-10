@@ -26,6 +26,7 @@ body {
     align-items: center;
     justify-content: space-around;
     border: 8px solid rgb(255, 149, 0);
+    background-color: pink;
     flex-grow: 3;
 }
 

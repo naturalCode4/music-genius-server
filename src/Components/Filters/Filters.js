@@ -9,7 +9,10 @@ function Filters() {
         <div id="filters">{
             filters.map(filter => {
                 return (
-                    <SliderAndSwitch filter={filter}/>
+                    <SliderAndSwitch 
+                        filter={filter}
+                        key={`${filter}`}
+                    />
                 )
             })
         }</div>

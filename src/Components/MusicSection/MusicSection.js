@@ -3,10 +3,13 @@ import Chart from "./Chart"
 import GenreSelect from "./GenreSelect"
 import SongSection from "./SongSection/SongSection"
 
-function MusicSection() {
+function MusicSection({genre, setGenre}) {
     return (
         <div id="music_section">
-            <GenreSelect/>
+            <GenreSelect
+                genre={genre}
+                setGenre={setGenre}
+              />
             <SongSection/>
             <Chart/>
         </div>

@@ -1,24 +1,40 @@
 import React, {useState} from 'react';
-import './App.css';
+import './css/App.css';
 import Header from './Components/Header';
 import MusicSection from './Components/MusicSection/MusicSection';
 import Filters from './Components/Filters/Filters';
 
 function App() {
 
-  const [genre, setGenre] = useState()
-  const [danceability, setDanceability] = useState()
-  const [energyLevel, setEnergyLevel] = useState()
-  const [affect, setAffect] = useState()
-  const [acousticness, setAcousticness] = useState()
-  const [vocalPresence, setVocalPresence] = useState()
-  const [popularity, setPopularity] = useState()
+  const [genre, setGenre] = useState('')
+  const [danceability, setDanceability] = useState(50)
+  const [energyLevel, setEnergyLevel] = useState(50)
+  const [affect, setAffect] = useState(50)
+  const [acousticness, setAcousticness] = useState(50)
+  const [vocalPresence, setVocalPresence] = useState(50)
+  const [popularity, setPopularity] = useState(50)
 
   return (
     <div id="app">
       <Header/>
-      <MusicSection/>
-      <Filters/>
+      <MusicSection
+          genre={genre}
+          setGenre={setGenre}
+        />
+      <Filters
+          danceability={danceability}
+          setDanceability={setDanceability}
+          energyLeve={energyLevel}
+          setEnergyLevel={setEnergyLevel}
+          affect={affect}
+          setAffect={setAffect}
+          acousticness={acousticness}
+          setAcousticness={setAcousticness}
+          vocalPresence={vocalPresence}
+          setVocalPresence={setVocalPresence}
+          popularity={popularity}
+          setPopularity={setPopularity}
+        />
     </div>
   );
 }
