@@ -1,8 +1,8 @@
 import React from "react"
 
-function Switch({className}) {
+function Switch() {
     return (
-        <div className={className}>
+        <div className="switch">
             Switch
         </div>
     )
