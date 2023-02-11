@@ -52,6 +52,54 @@ body {
     flex-grow: 1;
 }
 
+#genre_dropdown_content {
+  background-color: #6cbce4;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width: 200px;
+  height: 25vh;
+  overflow: scroll;
+  margin: 0px !important;
+  border-color: #3f636f;
+  box-shadow: 0px 0px 80px 5px #2754a8;
+  border-radius: 6px;
+}
+
+#genre_select_input {
+    background-color: #9586af;
+    color: #26212c;
+    width: 227px;
+    font-size: 28px;
+    font-family: "Courier New";
+    text-align: center;
+    border-radius: 6px;
+    border-style: inset;
+    border-width: 2px;
+    border-color: #8b7f96;
+    box-shadow: 0px 0px 10px 5px #8261aa;
+}
+
+#genre_select_input:hover {
+    background-color: #4694bb;
+    border-color: #3f636f;
+    box-shadow: 0px 0px 10px 5px #214893;
+    cursor: pointer;
+  }
+
+.genre_item {
+    /* text-decoration: none; */
+    font-size: 25px;
+    display: block;
+    border: .5px solid #4694bb;
+}
+
+.genre_item_on_hover {
+    font-size: 25px;
+    border: .5px solid #897ba2;
+    background-color: #9586af;
+    box-shadow: 7px 0px 4px #897ba2, 0px 7px 4px #897ba2, -7px 0px 4px #897ba2, 0px -7px 4px #897ba2;
+    cursor: pointer;
+}
+
 #song_display {
     flex-grow: 2;
 }

@@ -1,31 +1,58 @@
 import React, {useState} from "react"
 import {genreList} from '../../utilities'
+// import '../../css/GenreSelect.css'
 
-function GenreSelect({genre, setGenre}) {
+function GenreSelect({selectedGenre, setSelectedGenre}) {
 
     const [showGenreDropdown, setShowGenreDropdown] = useState(false)
 
-    console.log('genre', genre)
+    // call when hovering that element
+    console.log('selectedGenre', selectedGenre)
     console.log('showGenreDropdown', showGenreDropdown)
 
     return (
         <div id="genre_select">
             <div
-                 onMouseEnter={() => setShowGenreDropdown(true)}
-                 onMouseLeave={() => setShowGenreDropdown(false)}
+                id="genre_dropdown"
+                onMouseEnter={() => setShowGenreDropdown(true)}
+                onMouseLeave={() => setShowGenreDropdown(false)}
             >
                 <input
+                    id="genre_select_input"
                     type="text"
-                    value={genre}
-                    onChange={(e) => setGenre(e.target.value)}
-                    style={{height: '50px'}}
+                    value={selectedGenre}
+                    onChange={(e) => setSelectedGenre(e.target.value)}
+                    
                 />
-                {showGenreDropdown && <div>
-                    <p>{genreList}</p>
+                {showGenreDropdown && <div id="genre_dropdown_content">
+                     <div>
+                        {genreList.map(genre => {
+                            return (
+                                <GenreSelectItem 
+                                    genre={genre} 
+                                    setSelectedGenre={setSelectedGenre} 
+                                />
+                            )
+                        })}
+                    </div>
                 </div>}
             </div>
-
         </div>
+    )
+}
+
+function GenreSelectItem({ genre, setSelectedGenre }) {
+
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+    <div 
+        className={`${isHovered ? 'genre_item_on_hover' : 'genre_item'}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => setSelectedGenre(genre)}
+      >{genre}
+    </div>
     )
 }
 

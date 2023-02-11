@@ -1,16 +1,15 @@
 import React from "react"
-import SliderAndSwitch from "./SliderAndSwitch"
+import SliderSwitchAndName from "./SliderSwitchAndName"
 
-function Filters() {
-
-    const filters = [1, 2, 3, 4, 5, 6]
+function Filters({filtersAndSetFiltersPackage}) {
 
     return (
         <div id="filters">{
-            filters.map(filter => {
+            filtersAndSetFiltersPackage.map(filter => {
                 return (
-                    <SliderAndSwitch 
-                        filter={filter}
+                    <SliderSwitchAndName 
+                        filter={filter[0]}
+                        setFilter={filter[1]}
                         key={`${filter}`}
                     />
                 )

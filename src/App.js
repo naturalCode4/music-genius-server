@@ -6,7 +6,7 @@ import Filters from './Components/Filters/Filters';
 
 function App() {
 
-  const [genre, setGenre] = useState('')
+  const [selectedGenre, setSelectedGenre] = useState('')
   const [danceability, setDanceability] = useState(50)
   const [energyLevel, setEnergyLevel] = useState(50)
   const [affect, setAffect] = useState(50)
@@ -14,26 +14,17 @@ function App() {
   const [vocalPresence, setVocalPresence] = useState(50)
   const [popularity, setPopularity] = useState(50)
 
+  const filtersAndSetFiltersPackage = [[danceability, setDanceability], [energyLevel, setEnergyLevel], [affect, setAffect], [acousticness, setAcousticness], [vocalPresence, setVocalPresence], [popularity, setPopularity], ]
+
   return (
     <div id="app">
       <Header/>
       <MusicSection
-          genre={genre}
-          setGenre={setGenre}
+          selectedGenre={selectedGenre}
+          setSelectedGenre={setSelectedGenre}
         />
       <Filters
-          danceability={danceability}
-          setDanceability={setDanceability}
-          energyLeve={energyLevel}
-          setEnergyLevel={setEnergyLevel}
-          affect={affect}
-          setAffect={setAffect}
-          acousticness={acousticness}
-          setAcousticness={setAcousticness}
-          vocalPresence={vocalPresence}
-          setVocalPresence={setVocalPresence}
-          popularity={popularity}
-          setPopularity={setPopularity}
+          filtersAndSetFiltersPackage={filtersAndSetFiltersPackage}
         />
     </div>
   );
