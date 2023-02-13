@@ -1,21 +1,28 @@
 import React, {useState} from 'react';
 import './css/App.css';
-import Header from './Components/Header';
-import MusicSection from './Components/MusicSection/MusicSection';
-import Filters from './Components/Filters/Filters';
+import Header from './Components/Header.js';
+import MusicSection from './Components/MusicSection/MusicSection.js';
+import Filters from './Components/Filters/Filters.js';
+// import { formatFiltersAndSetFiltersAndNamePackage } from './utilities/utilities';
 
 function App() {
 
-  const [selectedGenre, setSelectedGenre] = useState('')
-  const [danceability, setDanceability] = useState(75)
-  const [energyLevel, setEnergyLevel] = useState(75)
-  const [affect, setAffect] = useState(75)
-  const [acousticness, setAcousticness] = useState(75)
-  const [vocalPresence, setVocalPresence] = useState(75)
-  const [popularity, setPopularity] = useState(75)
+  const [selectedGenre, setSelectedGenre] = useState('rock')
+  const [filterLevels, setFilterLevels] = useState({
+    danceability: 75,
+    energyLevel: 75,
+    mood: 75,
+    acousticness: 75,
+    vocalPresence: 75,
+    popularity: 75,
+  })
 
-  // can it move to utilities -- since it has variable names the utility file won't know?
-  const filtersAndSetFiltersPackage = [[danceability, setDanceability, 'Danceability'], [energyLevel, setEnergyLevel, 'Energy Level'], [affect, setAffect, 'Mood'], [acousticness, setAcousticness, 'Acousticness'], [vocalPresence, setVocalPresence, 'Vocal Presence'], [popularity, setPopularity, 'Popularity'], ]
+  // can memoize/custom function with certain criteria so that all the subcomponents with any of these values dont all rerender. So only component with specific one rerenders. We'll get to that later.
+  const updateFilterLevel = (filter, value) => {
+    const updatedFilterLevels = {...filterLevels};
+    updatedFilterLevels[filter] = value;
+    setFilterLevels(updatedFilterLevels);
+  }
 
   return (
     <div id="app">
@@ -23,9 +30,11 @@ function App() {
       <MusicSection
           selectedGenre={selectedGenre}
           setSelectedGenre={setSelectedGenre}
+          filterLevels={filterLevels}
         />
       <Filters
-          filtersAndSetFiltersPackage={filtersAndSetFiltersPackage}
+          filterLevels={filterLevels}
+          updateFilterLevel={updateFilterLevel}
         />
     </div>
   );

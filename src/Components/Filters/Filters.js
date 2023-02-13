@@ -1,19 +1,33 @@
 import React from "react"
-import SliderSwitchAndName from "./SliderSwitchAndName"
+import SliderSwitchAndName from "./SliderSwitchAndName.js"
+import { filterNames } from "../../utilities/utilities.js";
 
-function Filters({filtersAndSetFiltersPackage}) {
+function Filters({filterLevels, updateFilterLevel}) {
 
-    // es possibilmente por solo el estado que cambio actualizar
+    // es possibile por solo el estado que cambia actualizar
+    // memoize
+
+    const formattedFilterLevelsAndNames = []
+    
+    for (const filterLevel in filterLevels) {
+        formattedFilterLevelsAndNames.push([filterLevel]);
+      }
+    
+    for (let i=0; i<filterNames.length; i++) {
+        formattedFilterLevelsAndNames[i].push(filterNames[i])
+    }
+
+    console.log('formattedFilterLevelsAndNames', formattedFilterLevelsAndNames)
     
     return (
         <div id="filters">{
-            filtersAndSetFiltersPackage.map(filterAndSetFilterAndName => {
+            formattedFilterLevelsAndNames.map(filterLevelAndName => {
                 return (
                     <SliderSwitchAndName 
-                        filter={filterAndSetFilterAndName[0]}
-                        setFilter={filterAndSetFilterAndName[1]}
-                        name={filterAndSetFilterAndName[2]}
-                        key={`${filterAndSetFilterAndName[2]}`}
+                        filterLevel={filterLevelAndName[0]} // is this an actual working reference to state variable?
+                        updateFilterLevel={updateFilterLevel}
+                        name={filterLevelAndName[1]}
+                        key={filterLevelAndName[1]}
                     />
                 )
             })

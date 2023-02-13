@@ -1,8 +1,9 @@
 import React, {useState} from "react"
 
-function Slider({ filter, setFilter, sliderIsDisabled }) {
+function Slider({ filterLevel, updateFilterLevel, sliderIsDisabled}) {
 
-    console.log(filter)
+    console.log(filterLevel)
+
     return (
         <div className="slider">
             <input 
@@ -11,8 +12,8 @@ function Slider({ filter, setFilter, sliderIsDisabled }) {
                 min="1"
                 max="100"
                 step="1"
-                value={filter}
-                onChange={e => setFilter(e.target.value)}
+                value={filterLevel}
+                onChange={e => updateFilterLevel(filterLevel, e.target.value)} // filterLevel here is string?
             />
         </div>
     )

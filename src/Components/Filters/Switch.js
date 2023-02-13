@@ -1,6 +1,6 @@
 import React from "react"
 
-function Switch() {
+function Switch({setSliderIsDisabled}) {
     return (
         <div className="switch">
             Switch

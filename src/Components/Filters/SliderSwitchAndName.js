@@ -1,25 +1,24 @@
 import React, {useState} from "react"
-import Slider from "./Slider"
-import Switch from "./Switch"
+import Slider from "./Slider.js"
+import Switch from "./Switch.js"
 
-function SliderSwitchAndName({filter, setFilter, name}) {
+function SliderSwitchAndName({filterLevel, updateFilterLevel, name}) {
 
     const [sliderIsDisabled, setSliderIsDisabled] = useState(false)
 
-    console.log('filter name:', name)
+    console.log('name', `${filterLevel}`)
+    console.log('filter level', filterLevel)
+
     return (
         <div className="slider_and_switch">
             <p className="filter_name">{name}</p>
             <Slider 
-                filter={filter}
-                setFilter={setFilter}
+                filterLevel={filterLevel}
+                updateFilterLevel={updateFilterLevel}
                 sliderIsDisabled={sliderIsDisabled}
-                key={`${name} slider`}
             />
             <Switch 
                 setSliderIsDisabled={setSliderIsDisabled}
-                key={`${name} switch`}
-
             />
         </div>
     )

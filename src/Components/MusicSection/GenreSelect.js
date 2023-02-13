@@ -1,12 +1,11 @@
 import React, {useState} from "react"
-import {genreList} from '../../utilities'
+import {genreList} from '../../utilities/utilities.js'
 // import '../../css/GenreSelect.css'
 
 function GenreSelect({selectedGenre, setSelectedGenre}) {
 
     const [showGenreDropdown, setShowGenreDropdown] = useState(false)
 
-    // call when hovering that element
     console.log('selectedGenre', selectedGenre)
     console.log('showGenreDropdown', showGenreDropdown)
 

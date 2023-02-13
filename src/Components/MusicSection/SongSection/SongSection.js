@@ -1,14 +1,20 @@
 import React from "react"
-import AudioPanel from "./AudioPanel"
-import NewSongButton from "./NewSongButton"
-import SongDisplay from "./SongDisplay"
+import AudioPanel from "./AudioPanel.js"
+import NewSongButton from "./NewSongButton.js"
+import SongDisplay from "./SongDisplay.js"
 
-function SongSection() {
+function SongSection({filterLevels, selectedGenre}) {
     return (
         <div id="song_section">
-            <SongDisplay/>
+            <SongDisplay
+                filterLevels={filterLevels}
+                selectedGenre={selectedGenre}
+            />
             <AudioPanel/>
-            <NewSongButton/>
+            <NewSongButton
+                filterLevels={filterLevels}
+                selectedGenre={selectedGenre}
+            />
         </div>
     )
 }
