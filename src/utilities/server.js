@@ -28,7 +28,7 @@ let retried = false
 
 const getSongRecommendation = ({ genre, danceability, energy, valence, acousticness, instrumentalness, popularity }) => {
     
-    console.log('hit getSongRecommendation')
+    console.log('hit getSongRecommendation', { genre, danceability, energy, valence, acousticness, instrumentalness, popularity})
 
     const generateVariator = () => {
         let variator = Math.random() < .5 ? -1 : 1
@@ -38,19 +38,19 @@ const getSongRecommendation = ({ genre, danceability, energy, valence, acousticn
 
     let parameters = `?limit=1`
     if (genre) parameters += `&seed_genres=${genre.toLowerCase()}`
-    if (danceability) parameters += `&target_danceability=${danceability+generateVariator()}`
-    if (energy) parameters += `&target_energy=${energy+generateVariator()}`
-    if (valence) parameters += `&target_valence=${valence+generateVariator()}`
-    if (acousticness) parameters += `&target_acousticness=${acousticness+generateVariator()}`
-    if (instrumentalness) parameters += `&target_instrumentalness=${((instrumentalness/100)+generateVariator())}` // need to reverse
-    if (popularity) parameters += `&target_popularity=${(Math.floor(popularity+generateVariator())*100)}`
+    if (danceability) parameters += `&target_danceability=${(danceability/100)+generateVariator()}`
+    if (energy) parameters += `&target_energy=${(energy/100)+generateVariator()}`
+    if (valence) parameters += `&target_valence=${(valence/100)+generateVariator()}`
+    if (acousticness) parameters += `&target_acousticness=${(acousticness/100)+generateVariator()}`
+    if (instrumentalness) parameters += `&target_instrumentalness=${(((instrumentalness/100)/100)+generateVariator())}` // need to reverse
+    if (popularity) parameters += `&target_popularity=${(Math.floor(((popularity/100)+generateVariator())*100))}`
 
     return new Promise((resolve, reject) => {
         console.log('parameters:', parameters);
         axios.get(`${spotifyRecommendationBaseURL}${parameters}`, createRequestConfigurationForSpotifySongRecommendation(token))
             .then(res => {
 
-            console.log('.then of getSongRecommendation. res.data.tracks[0]: ', res.data.tracks[0])
+            console.log('.then of getSongRecommendation. song: ', res.data.tracks[0].name)
 
             const trackName = res.data.tracks[0].name
             const artistName = res.data.tracks[0].artists[0].name

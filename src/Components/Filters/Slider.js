@@ -13,7 +13,7 @@ function Slider({ filterInfo, updateFilterLevel}) {
                 max="100"
                 step="1"
                 value={filterInfo.value}
-                disabled={filterInfo.key.disabled} // not controlling
+                disabled={filterInfo.disabled} // not controlling
                 onChange={e => updateFilterLevel(filterInfo.key, e.target.value)}
             />
         </div>

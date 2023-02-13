@@ -5,12 +5,12 @@ function NewSongButton({filterLevels, selectedGenre, setSongInfo}) {
 
     const formattedFilters = {
         genre: selectedGenre,
-        danceability: filterLevels.danceability/100,
-        energy: filterLevels.energyLevel/100,
-        valence: filterLevels.mood/100,
-        acousticness: filterLevels.acousticness/100,
-        instrumentalness: filterLevels.vocalPresence/100,
-        popularity: filterLevels.popularity/100,
+        danceability: filterLevels.danceability.disabled ? null : filterLevels.danceability.value,
+        energy: filterLevels.energyLevel.disabled ? null : filterLevels.energyLevel.value,
+        valence: filterLevels.mood.disabled ? null : filterLevels.mood.value,
+        acousticness: filterLevels.acousticness.disabled ? null : filterLevels.acousticness.value,
+        instrumentalness: filterLevels.vocalPresence.disabled ? null : filterLevels.vocalPresence.value,
+        popularity: filterLevels.popularity.disabled ? null : filterLevels.popularity.value,
     }
 
     const getNewSong = async () => {

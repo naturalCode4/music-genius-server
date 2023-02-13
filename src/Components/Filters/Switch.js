@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from "react"
+import React from "react"
 
 
 function Switch({filterInfo, updateFilterDisabled}) {
@@ -10,7 +10,7 @@ function Switch({filterInfo, updateFilterDisabled}) {
               <input 
                 type="checkbox" 
                 className="lever pristine" 
-                checked={!filterInfo.key.disabled} // not controlling
+                defaultChecked={!filterInfo.key.disabled} 
                 onChange={() => updateFilterDisabled(filterInfo.key)}
                 />
               <label>

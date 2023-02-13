@@ -8,6 +8,7 @@ function Filters({filterLevels, updateFilterLevel, updateFilterDisabled}) {
     // memoize
     
     const formattedFilterLevelsAndNames = Object.entries(filterLevels).map((filterLevel, i) => {
+        console.log('building formattedFilterLevelsAndNames')
         return {
             value: filterLevel[1].value,
             disabled: filterLevel[1].disabled,
@@ -21,7 +22,7 @@ function Filters({filterLevels, updateFilterLevel, updateFilterDisabled}) {
             formattedFilterLevelsAndNames.map(filterLevelAndName => {
                 return (
                     <SliderSwitchAndName 
-                        filterInfo={filterLevelAndName} // is this an actual working reference to state variable?
+                        filterInfo={filterLevelAndName}
                         updateFilterLevel={updateFilterLevel}
                         updateFilterDisabled={updateFilterDisabled}
                         key={filterLevelAndName.key}
