@@ -1,7 +1,7 @@
 import React from "react"
 import { callServerForNewSong } from "../../../utilities/api.js"
 
-function NewSongButton({filterLevels, selectedGenre}) {
+function NewSongButton({filterLevels, selectedGenre, setSongInfo}) {
 
     const formattedFilters = {
         genre: selectedGenre,
@@ -9,15 +9,17 @@ function NewSongButton({filterLevels, selectedGenre}) {
         energy: filterLevels.energyLevel/100,
         valence: filterLevels.mood/100,
         acousticness: filterLevels.acousticness/100,
-        instrumentalness: filterLevels.instrumentalness/-100,
+        instrumentalness: filterLevels.vocalPresence/100,
         popularity: filterLevels.popularity/100,
     }
 
-    const getNewSong = () => {
+    const getNewSong = async () => {
         console.log('calling getNewSong')
         try {
-            callServerForNewSong(formattedFilters)
-            .then(newSong => {console.log('newSong:', newSong)}) // set state filters here
+            console.log('formattedFilters', formattedFilters)
+            const newSong = await callServerForNewSong(formattedFilters)
+            console.log('newSong', newSong.data)
+            setSongInfo(newSong.data)
         } catch (err) {
             console.log('Error calling getNewSong ==>:', err)
         }

@@ -1,9 +1,22 @@
-import React from "react"
+import React, {useState, useCallback} from "react"
 
-function Switch({setSliderIsDisabled}) {
+
+function Switch({filterInfo, updateFilterDisabled}) {
+
     return (
         <div className="switch">
-            Switch
+            <p>Switch</p>
+            <form className="leverform" id="danceability-lever">
+              <input 
+                type="checkbox" 
+                className="lever pristine" 
+                checked={!filterInfo.key.disabled} // not controlling
+                onChange={() => updateFilterDisabled(filterInfo.key)}
+                />
+              <label>
+                  <span>On</span>
+              </label>
+            </form>
         </div>
     )
 }

@@ -1,9 +1,9 @@
-import React, {useState} from "react"
+import React from "react"
 
-function Slider({ filterLevel, updateFilterLevel, sliderIsDisabled}) {
+function Slider({ filterInfo, updateFilterLevel}) {
 
-    console.log(filterLevel)
-
+    console.log(filterInfo.name, filterInfo.value, filterInfo.disabled)
+    
     return (
         <div className="slider">
             <input 
@@ -12,8 +12,9 @@ function Slider({ filterLevel, updateFilterLevel, sliderIsDisabled}) {
                 min="1"
                 max="100"
                 step="1"
-                value={filterLevel}
-                onChange={e => updateFilterLevel(filterLevel, e.target.value)} // filterLevel here is string?
+                value={filterInfo.value}
+                disabled={filterInfo.key.disabled} // not controlling
+                onChange={e => updateFilterLevel(filterInfo.key, e.target.value)}
             />
         </div>
     )

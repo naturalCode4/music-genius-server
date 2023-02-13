@@ -1,19 +1,29 @@
-import React from "react"
+import React, {useState} from "react"
 import AudioPanel from "./AudioPanel.js"
 import NewSongButton from "./NewSongButton.js"
 import SongDisplay from "./SongDisplay.js"
 
 function SongSection({filterLevels, selectedGenre}) {
+
+    const [songInfo, setSongInfo] = useState({
+        trackName: null, 
+        artistName: null, 
+        albumName: null, 
+        trackLink: null, 
+        albumCover: null, 
+        sampleLink: null
+    })
+
     return (
         <div id="song_section">
             <SongDisplay
-                filterLevels={filterLevels}
-                selectedGenre={selectedGenre}
+                songInfo={songInfo}
             />
             <AudioPanel/>
             <NewSongButton
                 filterLevels={filterLevels}
                 selectedGenre={selectedGenre}
+                setSongInfo={setSongInfo}
             />
         </div>
     )

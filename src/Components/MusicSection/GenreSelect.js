@@ -6,9 +6,6 @@ function GenreSelect({selectedGenre, setSelectedGenre}) {
 
     const [showGenreDropdown, setShowGenreDropdown] = useState(false)
 
-    console.log('selectedGenre', selectedGenre)
-    console.log('showGenreDropdown', showGenreDropdown)
-
     return (
         <div id="genre_select">
             <div

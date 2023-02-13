@@ -43,9 +43,10 @@ const getSongRecommendation = ({ genre, danceability, energy, valence, acousticn
     if (valence) parameters += `&target_valence=${valence+generateVariator()}`
     if (acousticness) parameters += `&target_acousticness=${acousticness+generateVariator()}`
     if (instrumentalness) parameters += `&target_instrumentalness=${((instrumentalness/100)+generateVariator())}` // need to reverse
-    if (popularity) parameters += `&target_popularity=${(popularity+generateVariator())*100}`
+    if (popularity) parameters += `&target_popularity=${(Math.floor(popularity+generateVariator())*100)}`
 
     return new Promise((resolve, reject) => {
+        console.log('parameters:', parameters);
         axios.get(`${spotifyRecommendationBaseURL}${parameters}`, createRequestConfigurationForSpotifySongRecommendation(token))
             .then(res => {
 
@@ -68,13 +69,14 @@ const getSongRecommendation = ({ genre, danceability, energy, valence, acousticn
                     try {
                         const tokenRes = await axios.post(spotifyTokenURL, data, tokenRequestAuthOptions) 
                         token = tokenRes.data.access_token
+                        // retry here.
                         console.log('obtained token:', token)
                     }
                     catch(err) {
                         console.log('Error retrying spotify token request ', err.response.status)
                         return
                     }
-                    if (token !== 'not declared yet') {
+                    if (token !== 'not declared yet') { // doesnt account for expired token, which is what we want. we want to retry on any 401 error
                         console.log('retrying getSongRecommendation with new token')
                         const retriedSongRecommendation = await getSongRecommendation({genre, danceability, energy, valence, acousticness, instrumentalness, popularity})
                         resolve (retriedSongRecommendation)

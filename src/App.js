@@ -3,24 +3,31 @@ import './css/App.css';
 import Header from './Components/Header.js';
 import MusicSection from './Components/MusicSection/MusicSection.js';
 import Filters from './Components/Filters/Filters.js';
-// import { formatFiltersAndSetFiltersAndNamePackage } from './utilities/utilities';
 
 function App() {
 
   const [selectedGenre, setSelectedGenre] = useState('rock')
   const [filterLevels, setFilterLevels] = useState({
-    danceability: 75,
-    energyLevel: 75,
-    mood: 75,
-    acousticness: 75,
-    vocalPresence: 75,
-    popularity: 75,
+    danceability: {value: 75, disabled: false},
+    energyLevel: {value: 75, disabled: false},
+    mood: {value: 75, disabled: false},
+    acousticness: {value: 75, disabled: false},
+    vocalPresence: {value: 75, disabled: false},
+    popularity: {value: 75, disabled: false},
   })
 
+  console.log('rendering app. filterLevels:', filterLevels)
+
   // can memoize/custom function with certain criteria so that all the subcomponents with any of these values dont all rerender. So only component with specific one rerenders. We'll get to that later.
-  const updateFilterLevel = (filter, value) => {
+  const updateFilterLevel = (name, value) => {
     const updatedFilterLevels = {...filterLevels};
-    updatedFilterLevels[filter] = value;
+    updatedFilterLevels[name].value = value;
+    setFilterLevels(updatedFilterLevels);
+  }
+
+  const updateFilterDisabled = (name) => {
+    const updatedFilterLevels = {...filterLevels};
+    updatedFilterLevels[name].disabled = !updatedFilterLevels[name].disabled;
     setFilterLevels(updatedFilterLevels);
   }
 
@@ -35,6 +42,7 @@ function App() {
       <Filters
           filterLevels={filterLevels}
           updateFilterLevel={updateFilterLevel}
+          updateFilterDisabled={updateFilterDisabled}
         />
     </div>
   );
