@@ -5,7 +5,7 @@ import Switch from "./Switch.js"
 function SliderSwitchAndName({filterInfo, updateFilterLevel, updateFilterDisabled}) {
 
     return (
-        <div className="slider_and_switch">
+        <div className="slider_switch_and_name">
             <p className="filter_name">{filterInfo.name}</p>
             <Slider 
                 filterInfo={filterInfo}

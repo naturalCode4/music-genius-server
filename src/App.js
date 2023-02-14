@@ -3,6 +3,7 @@ import './css/App.css';
 import Header from './Components/Header.js';
 import MusicSection from './Components/MusicSection/MusicSection.js';
 import Filters from './Components/Filters/Filters.js';
+import { filterNames } from "./utilities/utilities.js";
 
 function App() {
 
@@ -31,6 +32,16 @@ function App() {
     setFilterLevels(updatedFilterLevels);
   }
 
+  const formattedFilterLevelsAndNames = Object.entries(filterLevels).map((filterLevel, i) => {
+    console.log('building formattedFilterLevelsAndNames')
+    return {
+        value: filterLevel[1].value,
+        disabled: filterLevel[1].disabled,
+        key: filterLevel[0],
+        name: filterNames[i],
+    }
+});
+
   return (
     <div id="app">
       <Header/>
@@ -38,11 +49,13 @@ function App() {
           selectedGenre={selectedGenre}
           setSelectedGenre={setSelectedGenre}
           filterLevels={filterLevels}
+          formattedFilterLevelsAndNames={formattedFilterLevelsAndNames}
         />
       <Filters
           filterLevels={filterLevels}
           updateFilterLevel={updateFilterLevel}
           updateFilterDisabled={updateFilterDisabled}
+          formattedFilterLevelsAndNames={formattedFilterLevelsAndNames}
         />
     </div>
   );

@@ -1,21 +1,10 @@
 import React from "react"
 import SliderSwitchAndName from "./SliderSwitchAndName.js"
-import { filterNames } from "../../utilities/utilities.js";
 
-function Filters({filterLevels, updateFilterLevel, updateFilterDisabled}) {
+function Filters({filterLevels, updateFilterLevel, updateFilterDisabled, formattedFilterLevelsAndNames}) {
 
     // es possibile por solo el estado que cambia actualizar
     // memoize
-    
-    const formattedFilterLevelsAndNames = Object.entries(filterLevels).map((filterLevel, i) => {
-        console.log('building formattedFilterLevelsAndNames')
-        return {
-            value: filterLevel[1].value,
-            disabled: filterLevel[1].disabled,
-            key: filterLevel[0],
-            name: filterNames[i],
-        }
-    });
     
     return (
         <div id="filters">{

@@ -118,7 +118,7 @@ body {
     flex-grow: 1;
 }
 
-.slider_and_switch {
+.slider_switch_and_name {
     height: 100%;
     display: flex;
     flex-direction: column;

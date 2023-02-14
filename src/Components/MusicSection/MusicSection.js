@@ -1,9 +1,9 @@
 import React from "react"
-import Chart from "./Chart.js"
+import Chart from "./Chart/Chart.js"
 import GenreSelect from "./GenreSelect.js"
 import SongSection from "./SongSection/SongSection.js"
 
-function MusicSection({selectedGenre, setSelectedGenre, filterLevels}) {
+function MusicSection({selectedGenre, setSelectedGenre, filterLevels, formattedFilterLevelsAndNames}) {
 
 
     return (
@@ -16,7 +16,9 @@ function MusicSection({selectedGenre, setSelectedGenre, filterLevels}) {
                 filterLevels={filterLevels}
                 selectedGenre={selectedGenre}
             />
-            <Chart/>
+            <Chart
+                formattedFilterLevelsAndNames={formattedFilterLevelsAndNames}
+            />
         </div>
     )
 }

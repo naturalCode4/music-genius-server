@@ -1,0 +1,302 @@
+  #filters-chart {
+    color: #BBB;
+    background-color: #242424;
+    text-align: center;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px 8px;
+    width: 0; 
+    /* ^this fixes size, but why is issue happening in first place? */
+    scale: 1.2
+  }
+  
+  fieldset {
+    border: #999 solid .2em;
+    border-radius: .175em;
+    display: inline-block;
+    /* text-align: left;
+    position: relative; */
+    -webkit-transition: border-color .25s linear;
+    transition: border-color .25s linear;
+  }
+  
+  fieldset:hover {
+    box-shadow: 0px 0px 10px 5px #2754a8;
+  }
+
+  .chart-input {
+    display: block;
+    /* margin: 0; */
+    /* padding: 0; */
+    font-size: inherit;
+    width: 9.9em;
+    height: 1em;
+    border-radius: .25em;
+    border: 0.2em solid #242424;
+    background-color: #242424;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: -webkit-box-shadow .2s linear;
+    transition: -webkit-box-shadow .2s linear;
+    transition: box-shadow .2s linear;
+    transition: box-shadow .2s linear, -webkit-box-shadow .2s linear;
+    -webkit-box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 0 0 transparent;
+  }
+  
+  .chart-input:focus {
+    -webkit-box-shadow: 0 0 0 .1em  #AAAAAA;
+    box-shadow: 0 0 0 .1em  #AAAAAA;
+  }
+  
+  .chart-input:hover {
+    -webkit-box-shadow: 0 0 0 .15em #6FC5F0;
+    box-shadow: 0 0 0 .15em #6FC5F0;
+  }
+  
+  .chart-input:disabled:hover {
+    -webkit-box-shadow: 0 0 0 .15em #4D4D4D;
+    box-shadow: 0 0 0 .15em #4D4D4D;
+  }
+  
+  .chart-input {
+    /* > Would be cool heh :-) : */
+    -webkit-transform: rotate(attr(orient));
+    transform: rotate(attr(orient));
+  }
+  
+  .chart-label[type='range'][orient='180deg'] {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  
+  .chart-input[orient='270deg'] {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+  
+  /* ### all vertical ranges : */
+  .chart-input[orient='90deg'], .chart-input[orient='270deg'] {
+    margin: 4.5em -4.5em;
+    display: inline-block;
+  }
+  
+  .chart-input[orient='90deg']::-webkit-slider-thumb, .chart-input[orient='270deg']::-webkit-slider-thumb {
+    cursor: ns-resize;
+  }
+  
+  .chart-input[orient='90deg']::-moz-range-thumb, .chart-input[orient='270deg']::-moz-range-thumb {
+    cursor: ns-resize;
+  }
+  
+  .chart-input[orient='90deg']::-ms-thumb, .chart-input[orient='270deg']::-ms-thumb {
+    cursor: ns-resize;
+  }
+  
+  /* ## Slider components */
+  /* ### Slider::-track */
+  .chart-input::-webkit-slider-runnable-track {
+    border: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .chart-input::-moz-range-track {
+    border: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .chart-input::-ms-track {
+    border: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* ### Slider::-thumb */
+  .chart-input::-webkit-slider-thumb {
+    margin: .05em;
+    padding: 0;
+    height: .9em;
+    width: .9em;
+    border-radius: .1em;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    background-color: #6FC5F0;
+    -webkit-box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #2F343F, -7em 0 0 0 #283F6B, -6em 0 0 0 #214893, -5em 0 0 0 #1A52BC, -4em 0 0 0 #2769D3, -3em 0 0 0 #3E87DC, -2em 0 0 0 #55A5E6, -1em 0 0 0 #6FC5F0, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
+    box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #2F343F, -7em 0 0 0 #283F6B, -6em 0 0 0 #214893, -5em 0 0 0 #1A52BC, -4em 0 0 0 #2769D3, -3em 0 0 0 #3E87DC, -2em 0 0 0 #55A5E6, -1em 0 0 0 #6FC5F0, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
+    cursor: ew-resize;
+  }
+  
+  .chart-input::-moz-range-thumb {
+    margin: .05em;
+    padding: 0;
+    height: .9em;
+    width: .9em;
+    border-radius: .1em;
+    box-sizing: border-box;
+    border: none;
+    background-color: #6FC5F0;
+    box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #2F343F, -7em 0 0 0 #283F6B, -6em 0 0 0 #214893, -5em 0 0 0 #1A52BC, -4em 0 0 0 #2769D3, -3em 0 0 0 #3E87DC, -2em 0 0 0 #55A5E6, -1em 0 0 0 #6FC5F0, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
+    cursor: ew-resize;
+  }
+  
+  .chart-input::-ms-thumb {
+    margin: .05em;
+    padding: 0;
+    height: .9em;
+    width: .9em;
+    border-radius: .1em;
+    box-sizing: border-box;
+    border: none;
+    background-color: #6FC5F0;
+    box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #2F343F, -7em 0 0 0 #283F6B, -6em 0 0 0 #214893, -5em 0 0 0 #1A52BC, -4em 0 0 0 #2769D3, -3em 0 0 0 #3E87DC, -2em 0 0 0 #55A5E6, -1em 0 0 0 #6FC5F0, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
+    cursor: ew-resize;
+  }
+  
+  /* ## Browser tweaks */
+  /* ### webkit */
+  .chart-input, .chart-input::-webkit-slider-runnable-track, .chart-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  
+  /* ### IE */
+  .chart-input::-ms-track {
+    color: transparent;
+  }
+  
+  .chart-input::-ms-fill-lower, .chart-input::-ms-fill-upper, .chart-input::-ms-tooltip {
+    display: none;
+  }
+  
+  /* Label *
+   * ====== */
+  /* ## Label main element */
+  .chart-label {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    line-height: .6em;
+    width: 9.9em;
+    height: 1em;
+    border-radius: .25em;
+    color: #242424;
+    font-family: "Century Gothic", "Helvetica", sans-serif;
+    border: .2em solid transparent;
+    text-align: center;
+    border-bottom-color: #242424;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#242424), to(#242424));
+    background-image: linear-gradient(#242424 calc(50% - .1em), #242424 calc(50% + .1em));
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: .2em .2em;
+    color: #999;
+  }
+  
+  .chart-label:first-letter {
+    font-size: .6em;
+  }
+  
+  .chart-label::before, .chart-label::after {
+    display: block;
+    position: absolute;
+    height: 1em;
+    line-height: 1em;
+    width: 1em;
+  }
+  
+  .chart-label::before {
+    content: attr(before);
+    left: -.2em;
+    text-align: left;
+  }
+  
+  .chart-label::after {
+    content: attr(after);
+    top: 0;
+    right: -.2em;
+    text-align: right;
+  }
+  
+  .chart-label[orient='90deg'], .chart-label[orient='270deg'] {
+    border-bottom-color: transparent;
+    display: inline-block;
+    width: 1em;
+    height: 10.1em;
+    line-height: 10.1em;
+    vertical-align: top;
+  }
+  
+  .chart-label[orient='90deg'] {
+    border-bottom-color: transparent;
+    border-left-color: #242424;
+    background-position: center left;
+    text-align: center;
+  }
+  
+  .chart-label[orient='90deg']::before {
+    top: -.2em;
+    bottom: auto;
+    left: .1em;
+  }
+  
+  .chart-label[orient='90deg']::after {
+    left: .1em;
+    top: auto;
+    bottom: -.2em;
+    right: 0;
+    text-align: left;
+  }
+  
+  .chart-label[orient='180deg'] {
+    border-bottom-color: transparent;
+    border-top-color: #242424;
+    background-position: top center;
+    line-height: 1.4em;
+  }
+  
+  .chart-label[orient='180deg']::before {
+    bottom: 0;
+    left: auto;
+    right: -.2em;
+    text-align: right;
+  }
+  
+  .chart-label[orient='180deg']::after {
+    bottom: 0;
+    left: -.2em;
+    right: auto;
+    text-align: left;
+  }
+  
+  .chart-label[orient='270deg'] {
+    border-bottom-color: transparent;
+    border-right-color: #242424;
+    background-position: center right;
+    text-align: center;
+  }
+  
+  .chart-label[orient='270deg']::before {
+    bottom: -.2em;
+    top: auto;
+    right: .1em;
+    left: auto;
+    text-align: right;
+  }
+  
+  .chart-label[orient='270deg']::after {
+    right: .1em;
+    bottom: auto;
+    top: -.2em;
+    left: auto;
+    text-align: right;
+  }

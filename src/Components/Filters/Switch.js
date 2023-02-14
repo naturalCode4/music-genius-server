@@ -1,17 +1,27 @@
-import React from "react"
-
+import React, {useState} from "react"
+import '../../css/Switch.css'
 
 function Switch({filterInfo, updateFilterDisabled}) {
+
+    const [leverIsOn, setLeverIsOn] = useState(true)
+
+    const handleSwitchChange = () => {
+      updateFilterDisabled(filterInfo.key)
+      setLeverIsOn(!leverIsOn)
+      document.getElementById(filterInfo.key)?.classList.remove("pristine");
+    }
 
     return (
         <div className="switch">
             <p>Switch</p>
-            <form className="leverform" id="danceability-lever">
+            <form className="leverform">
               <input 
                 type="checkbox" 
+                id={filterInfo.key}
                 className="lever pristine" 
+                aria-checked={!leverIsOn}
                 defaultChecked={!filterInfo.key.disabled} 
-                onChange={() => updateFilterDisabled(filterInfo.key)}
+                onChange={handleSwitchChange}
                 />
               <label>
                   <span>On</span>
