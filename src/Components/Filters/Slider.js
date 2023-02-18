@@ -2,8 +2,6 @@ import React from "react"
 import '../../css/Slider.css'
 
 function Slider({ filterInfo, updateFilterLevel}) {
-
-    console.log(filterInfo.name, filterInfo.value, filterInfo.disabled)
     
     return (
         <div className="slider">

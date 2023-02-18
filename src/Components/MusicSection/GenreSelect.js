@@ -8,6 +8,7 @@ function GenreSelect({selectedGenre, setSelectedGenre}) {
 
     return (
         <div id="genre_select">
+            <p className="filter_name engraved_text">Genre</p>
             <div
                 id="genre_dropdown"
                 onMouseEnter={() => setShowGenreDropdown(true)}

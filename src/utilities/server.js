@@ -10,14 +10,12 @@ app.use(cors())
 
 
 app.post('/songRec', async (req, res) => {
-    console.log('hit /songRec')
     try {
-        console.log('hit /songRec try')
+        console.log('try /songRec')
         const songRecommendation = await getSongRecommendation(req.body.filters)
         res.status(200).send(JSON.stringify(songRecommendation))
     }
     catch (err) {
-        console.log('hit /songRec catch')
         console.log('Error @ /songRec endpoint ==>:', err.response.status)
         res.status(400).send()
     }
@@ -28,7 +26,7 @@ let retried = false
 
 const getSongRecommendation = ({ genre, danceability, energy, valence, acousticness, instrumentalness, popularity }) => {
     
-    console.log('hit getSongRecommendation', { genre, danceability, energy, valence, acousticness, instrumentalness, popularity})
+    console.log('hit getSongRecommendation. Filter values: ', { genre, danceability, energy, valence, acousticness, instrumentalness, popularity})
 
     const generateVariator = () => {
         let variator = Math.random() < .5 ? -1 : 1
@@ -79,7 +77,6 @@ const getSongRecommendation = ({ genre, danceability, energy, valence, acousticn
                         return
                     }
                     if (token !== 'not declared yet') { // doesnt account for expired token, which is what we want. we want to retry on any 401 error
-                        console.log('retrying getSongRecommendation with new token')
                         const retriedSongRecommendation = await getSongRecommendation({genre, danceability, energy, valence, acousticness, instrumentalness, popularity})
                         resolve (retriedSongRecommendation)
                     } else {

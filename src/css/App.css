@@ -35,11 +35,11 @@ body {
 #music_section {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: space-evenly;
     /* border: 8px solid rgb(255, 149, 0); */
     flex-grow: 3;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
 }
 
 #music_section > div {
@@ -76,6 +76,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 8px;
 }
 
 #genre_dropdown_content {
@@ -122,9 +123,12 @@ body {
 
 .genre_item_on_hover {
     font-size: 25px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     border: .5px solid #897ba2;
     background-color: #9586af;
-    box-shadow: 7px 0px 4px #897ba2, 0px 7px 4px #897ba2, -7px 0px 4px #897ba2, 0px -7px 4px #897ba2;
+    box-shadow: 20px 2px 6px #897ba2, -20px -2px 6px #897ba2;
+    box-shadow: 20px 2px 6px #897ba2, 0px 4px 6px #897ba2, -20px 0px 6px #897ba2, 0px -4px 6px #897ba2;
     cursor: pointer;
 }
 
@@ -180,6 +184,7 @@ body {
     border-style: inset;
     border-width: 3px;
     border-color: #8b7f96;
+    box-shadow: 0px 0px 10px 5px #8261aa;
     /* box-shadow: 0px 0px 20px 10px #8261aa; */
     padding: 10px 22px 10px 22px;
     cursor: pointer
@@ -187,8 +192,8 @@ body {
 
 #new_song_button:active {
     background-color: #4694bb;
+    box-shadow: 0px 0px 10px 5px #214893;
     border-color: #3f636f;
-    /* box-shadow: 0px 0px 20px 10px #214893; */
 }
 
 #new_song_button button {
@@ -221,7 +226,7 @@ body {
 
 .filter_name {
     flex-grow: 1;
-    font-size: calc(1.5vw + 6px);
+    font-size: calc(1.5vw + 10px);
     margin: 0;
     margin-top: 8px;
     display: flex;

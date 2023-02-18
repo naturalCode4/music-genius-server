@@ -20,7 +20,7 @@
   }
   
   fieldset:hover {
-    box-shadow: 0px 0px 200px 10px #2754a8;
+    box-shadow: 0px 0px 20px 8px #2754a8
   }
 
   .chart-input {
@@ -34,7 +34,6 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     overflow: hidden;
-    cursor: pointer;
     -webkit-transition: -webkit-box-shadow .2s linear;
     transition: -webkit-box-shadow .2s linear;
     transition: box-shadow .2s linear;
@@ -91,18 +90,6 @@
     display: inline-block;
   }
   
-  .chart-input[orient='90deg']::-webkit-slider-thumb, .chart-input[orient='270deg']::-webkit-slider-thumb {
-    cursor: ns-resize;
-  }
-  
-  .chart-input[orient='90deg']::-moz-range-thumb, .chart-input[orient='270deg']::-moz-range-thumb {
-    cursor: ns-resize;
-  }
-  
-  .chart-input[orient='90deg']::-ms-thumb, .chart-input[orient='270deg']::-ms-thumb {
-    cursor: ns-resize;
-  }
-  
   /* ## Slider components */
   /* ### Slider::-track */
   .chart-input::-webkit-slider-runnable-track {
@@ -139,7 +126,6 @@
     background-color: #6FC5F0;
     -webkit-box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #2F343F, -7em 0 0 0 #283F6B, -6em 0 0 0 #214893, -5em 0 0 0 #1A52BC, -4em 0 0 0 #2769D3, -3em 0 0 0 #3E87DC, -2em 0 0 0 #55A5E6, -1em 0 0 0 #6FC5F0, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
     box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #2F343F, -7em 0 0 0 #283F6B, -6em 0 0 0 #214893, -5em 0 0 0 #1A52BC, -4em 0 0 0 #2769D3, -3em 0 0 0 #3E87DC, -2em 0 0 0 #55A5E6, -1em 0 0 0 #6FC5F0, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
-    cursor: ew-resize;
   }
   
   .chart-input::-moz-range-thumb {
@@ -152,7 +138,6 @@
     border: none;
     background-color: #6FC5F0;
     box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #2F343F, -7em 0 0 0 #283F6B, -6em 0 0 0 #214893, -5em 0 0 0 #1A52BC, -4em 0 0 0 #2769D3, -3em 0 0 0 #3E87DC, -2em 0 0 0 #55A5E6, -1em 0 0 0 #6FC5F0, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
-    cursor: ew-resize;
   }
   
   .chart-input::-ms-thumb {
@@ -165,7 +150,6 @@
     border: none;
     background-color: #6FC5F0;
     box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #2F343F, -7em 0 0 0 #283F6B, -6em 0 0 0 #214893, -5em 0 0 0 #1A52BC, -4em 0 0 0 #2769D3, -3em 0 0 0 #3E87DC, -2em 0 0 0 #55A5E6, -1em 0 0 0 #6FC5F0, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
-    cursor: ew-resize;
   }
   
   /* ## Browser tweaks */

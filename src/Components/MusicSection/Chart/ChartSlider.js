@@ -1,8 +1,6 @@
 import React from "react"
 
 function ChartSlider({filterInfo}) {
-
-    console.log('filterInfo.disabled', filterInfo.disabled)
     
     return (
         <input 
