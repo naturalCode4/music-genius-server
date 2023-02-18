@@ -36,11 +36,7 @@ const getSongRecommendation = ({ genre, danceability, energy, valence, acousticn
         return variator
     }
 
-    const reverseFilterValue = (value, mid) => {
-        const reversedFilterValue = mid-(value-mid)
-        console.log('reversedFilterValue', reversedFilterValue)
-        return reversedFilterValue
-    }
+    const reverseFilterValue = (value, mid) => mid-(value-mid)
 
     let parameters = `?limit=1`
     if (genre) parameters += `&seed_genres=${genre.toLowerCase()}`
@@ -48,7 +44,7 @@ const getSongRecommendation = ({ genre, danceability, energy, valence, acousticn
     if (energy) parameters += `&target_energy=${(energy/100)+generateVariator()}`
     if (valence) parameters += `&target_valence=${(valence/100)+generateVariator()}`
     if (acousticness) parameters += `&target_acousticness=${(acousticness/100)+generateVariator()}`
-    if (instrumentalness) parameters += `&target_instrumentalness=${((reverseFilterValue(instrumentalness, 50)/100)+generateVariator())}` // need to reverse
+    if (instrumentalness) parameters += `&target_instrumentalness=${((reverseFilterValue(instrumentalness, 50)/100)+generateVariator())}`
     if (popularity) parameters += `&target_popularity=${(Math.floor(((popularity/100)+generateVariator())*100))}`
 
     return new Promise((resolve, reject) => {

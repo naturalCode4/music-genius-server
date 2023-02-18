@@ -2,12 +2,13 @@
     color: #BBB;
     background-color: #242424;
     text-align: center;
-    padding-top: 12px;
     display: flex;
     flex-direction: row;
     gap: 0px 8px;
     width: 0; 
-    /* ^this fixes size, but why is issue happening in first place? */
+    scale: 1.1;
+    padding-top: 12px;
+    margin: 9px 10px 4px 10px
   }
   
   fieldset {
@@ -24,8 +25,6 @@
 
   .chart-input {
     display: block;
-    /* margin: 0; */
-    /* padding: 0; */
     font-size: inherit;
     width: 9.9em;
     height: 1em;
