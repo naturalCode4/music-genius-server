@@ -27,10 +27,10 @@ function NewSongButton({filterLevels, selectedGenre, setSongInfo}) {
 
 
     return (
-        <div id="new_song_button">
-            <button
-                onClick={getNewSong}
-            >New Song</button>
+        <div 
+            id="new_song_button"
+            onClick={getNewSong}
+            >New Song
         </div>
     )
 }

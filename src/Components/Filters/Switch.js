@@ -13,7 +13,6 @@ function Switch({filterInfo, updateFilterDisabled}) {
 
     return (
         <div className="switch">
-            <p>Switch</p>
             <form className="leverform">
               <input 
                 type="checkbox" 

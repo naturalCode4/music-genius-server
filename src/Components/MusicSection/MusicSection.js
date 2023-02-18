@@ -5,7 +5,6 @@ import SongSection from "./SongSection/SongSection.js"
 
 function MusicSection({selectedGenre, setSelectedGenre, filterLevels, formattedFilterLevelsAndNames}) {
 
-
     return (
         <div id="music_section">
             <GenreSelect

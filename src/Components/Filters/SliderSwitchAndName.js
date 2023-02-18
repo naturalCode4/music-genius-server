@@ -6,7 +6,7 @@ function SliderSwitchAndName({filterInfo, updateFilterLevel, updateFilterDisable
 
     return (
         <div className="slider_switch_and_name">
-            <p className="filter_name">{filterInfo.name}</p>
+            <p className="filter_name engraved_text">{filterInfo.name}</p>
             <Slider 
                 filterInfo={filterInfo}
                 updateFilterLevel={updateFilterLevel}

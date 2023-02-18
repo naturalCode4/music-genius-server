@@ -8,21 +8,18 @@
     gap: 0px 8px;
     width: 0; 
     /* ^this fixes size, but why is issue happening in first place? */
-    scale: 1.2
   }
   
   fieldset {
-    border: #999 solid .2em;
+    border: #6cbce4 solid .15em;
     border-radius: .175em;
     display: inline-block;
-    /* text-align: left;
-    position: relative; */
     -webkit-transition: border-color .25s linear;
     transition: border-color .25s linear;
   }
   
   fieldset:hover {
-    box-shadow: 0px 0px 10px 5px #2754a8;
+    box-shadow: 0px 0px 200px 10px #2754a8;
   }
 
   .chart-input {
@@ -57,12 +54,17 @@
     box-shadow: 0 0 0 .15em #6FC5F0;
   }
 
-  .chart-input:disabled + .chart-input::-webkit-slider-thumb {
+  /* .chart-input:disabled + .chart-input::-webkit-slider-thumb {
     box-shadow: -10em 0 0 0 #4D4D4D, -9em 0 0 0 #4D4D4D, -8em 0 0 0 #4D4D4D, -7em 0 0 0 #4D4D4D, -6em 0 0 0 #4D4D4D, -5em 0 0 0 #4D4D4D, -4em 0 0 0 #4D4D4D, -3em 0 0 0 #4D4D4D, -2em 0 0 0 #4D4D4D, -1em 0 0 0 #4D4D4D, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
     box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #3a3a3a, -7em 0 0 0 #4a4a4a, -6em 0 0 0 #5a5a5a, -5em 0 0 0 #6a6a6a, -4em 0 0 0 #7a7a7a, -3em 0 0 0 #8a8a8a, -2em 0 0 0 #a1a1a1, -1em 0 0 0 #ababab, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818;
     background-color: #c4c4c4;
+  } */
+
+  .chart-input-disabled::-webkit-slider-thumb {
+    box-shadow: -10em 0 0 0 #313131, -9em 0 0 0 #313131, -8em 0 0 0 #3a3a3a, -7em 0 0 0 #4a4a4a, -6em 0 0 0 #5a5a5a, -5em 0 0 0 #6a6a6a, -4em 0 0 0 #7a7a7a, -3em 0 0 0 #8a8a8a, -2em 0 0 0 #a1a1a1, -1em 0 0 0 #ababab, 1em 0 0 0 #181818, 2em 0 0 0 #181818, 3em 0 0 0 #181818, 4em 0 0 0 #181818, 5em 0 0 0 #181818, 6em 0 0 0 #181818, 7em 0 0 0 #181818, 8em 0 0 0 #181818, 9em 0 0 0 #181818 !important;
+    background-color: #c4c4c4 !important;
   }
-  
+
   .chart-input:disabled:hover {
     -webkit-box-shadow: 0 0 0 .15em #4D4D4D;
     box-shadow: 0 0 0 .15em #4D4D4D;

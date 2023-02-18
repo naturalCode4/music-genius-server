@@ -2,8 +2,8 @@ import React from "react"
 
 function Header() {
     return (
-        <div id="header">
-            <p>Music Genius</p>
+        <div id="header" className="engraved_text">
+            <p>MUSIC GENIUS</p>
         </div>
     )
 }

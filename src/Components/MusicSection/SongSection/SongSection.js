@@ -19,7 +19,9 @@ function SongSection({filterLevels, selectedGenre}) {
             <SongDisplay
                 songInfo={songInfo}
             />
-            <AudioPanel/>
+            <AudioPanel
+                songInfo={songInfo}
+            />
             <NewSongButton
                 filterLevels={filterLevels}
                 selectedGenre={selectedGenre}
