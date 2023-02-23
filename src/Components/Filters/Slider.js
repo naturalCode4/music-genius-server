@@ -1,7 +1,7 @@
 import React from "react"
 import '../../css/Slider.css'
 
-function Slider({ filterInfo, updateFilterLevel}) {
+function Slider({ filterInfo, updateFilterLevel }) {
     
     return (
         <div className="slider">

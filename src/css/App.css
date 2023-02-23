@@ -21,15 +21,42 @@ body {
     font-weight: bold;
 }
 
+.text_3D {
+    /* transform: translate(50%,-50%); */
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 4.5em;
+    font-weight: 700;
+    color: #d0b7eb;
+    text-shadow: 1px 1px 1px #7a6d8e,
+        1.5px 2px 1px #7a6d8e,
+        1.5px 3px 1px #7a6d8e,
+        1.5px 4px 1px #7a6d8e,
+        1.5px 5px 1px #7a6d8e,
+        1.5px 6px 1px #7a6d8e,
+        1.5px 7px 1px #7a6d8e,
+        /* 1.5px 8px 1px #7a6d8e,
+        1px 9px 1px #7a6d8e,
+        1px 10px 1px #7a6d8e, */
+    1px 9px 6px rgba(208, 183, 235, 0.7), 
+    1px 10px 12px rgba(208, 183, 235, 0.6),
+    1px 12px 40px rgba(208,183,235,0.6),
+    1px 16px 40px rgba(208,183,235, 0.6);
+}
+
+#landing_modal {
+    background-color: lightblue;
+}
+
 #header {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 60px;
+    /* scale: .3; */
     /* border: 8px solid red; */
     flex-grow: .5;
-    text-shadow: -2px -1px 1.5px #d0b7eb, 2.5px 1.25px 1px #533e6b
+    /* text-shadow: -2px -1px 1.5px #d0b7eb, 2.5px 1.25px 1px #533e6b */
 }
 
 #music_section {
@@ -83,7 +110,7 @@ body {
   background-color: #6cbce4;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   width: 234px;
-  height: 24.25vh;
+  height: 23vh;
   overflow: scroll;
   margin: 0px !important;
   border-color: #3f636f;
@@ -169,6 +196,10 @@ body {
     height: 100%;
 }
 
+.spinner_display {
+    justify-content: center !important;
+}
+
 #audio_panel {
     flex-grow: 1;
     margin: 18px 0px 18px 0px
@@ -226,13 +257,18 @@ body {
 
 .filter_name {
     flex-grow: 1;
-    font-size: calc(1.5vw + 10px);
+    font-size: calc(1.2vw + 6px);
     margin: 0;
     margin-top: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-shadow: -1px -.75px 1px #d0b7eb, 1px .75px .5px #533e6b
+    text-shadow: 
+        1px 1px 1px #7a6d8e,
+        1px 2px 1px #7a6d8e,
+        1px 3px 1px #7a6d8e,
+    1px 4px 6px rgba(208, 183, 235, 0.7), 
+    1px 6px 20px rgba(208,183,235, 0.6);
 }
 
 .slider {

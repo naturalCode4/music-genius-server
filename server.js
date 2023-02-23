@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import axios from 'axios'
 
-import {createRequestConfigurationForSpotifySongRecommendation, tokenRequestAuthOptions, data, spotifyTokenURL, spotifyRecommendationBaseURL} from './spotifyAuthorization.js'
+import {createRequestConfigurationForSpotifySongRecommendation, tokenRequestAuthOptions, spotifyTokenGrantTypeParameter, spotifyTokenURL, spotifyRecommendationBaseURL} from './src/utilities/spotifyAuthorization.js'
 
 const app = express()
 app.use(express.json())
@@ -21,13 +21,16 @@ app.post('/songRec', async (req, res) => {
     }
 })
 
-let token = 'not declared yet'
-let retried = false
+const requestSpotifyOAuthToken = async (spotifyTokenURL, spotifyTokenGrantTypeParameter, tokenRequestAuthOptions) => {
+    const response = await axios.post(spotifyTokenURL, spotifyTokenGrantTypeParameter, tokenRequestAuthOptions) 
+    return response.data.access_token
+}
+
+let hasCalledGetSongRecommendationTwice = false
+let spotifyOAuthToken = await requestSpotifyOAuthToken(spotifyTokenURL, spotifyTokenGrantTypeParameter, tokenRequestAuthOptions)
 
 const getSongRecommendation = ({ genre, danceability, energy, valence, acousticness, instrumentalness, popularity }) => {
     
-    console.log('hit getSongRecommendation. Filter values: ', { genre, danceability, energy, valence, acousticness, instrumentalness, popularity})
-
     const generateVariator = () => {
         let variator = Math.random() < .5 ? -1 : 1
         variator = variator*.25*Math.random()
@@ -46,11 +49,11 @@ const getSongRecommendation = ({ genre, danceability, energy, valence, acousticn
     if (popularity) parameters += `&target_popularity=${(Math.floor(((popularity/100)+generateVariator())*100))}`
 
     return new Promise((resolve, reject) => {
-        console.log('parameters:', parameters);
-        axios.get(`${spotifyRecommendationBaseURL}${parameters}`, createRequestConfigurationForSpotifySongRecommendation(token))
-            .then(res => {
 
-            console.log('.then of getSongRecommendation. song: ', res.data.tracks[0].name)
+        console.log('parameters:', parameters);
+
+        axios.get(`${spotifyRecommendationBaseURL}${parameters}`, createRequestConfigurationForSpotifySongRecommendation(spotifyOAuthToken))
+            .then(res => {
 
             const trackName = res.data.tracks[0].name
             const artistName = res.data.tracks[0].artists[0].name
@@ -58,34 +61,30 @@ const getSongRecommendation = ({ genre, danceability, energy, valence, acousticn
             const trackLink = res.data.tracks[0].external_urls.spotify
             const albumCover = res.data.tracks[0].album.images[1].url
             const sampleLink = res.data.tracks[0].preview_url
+
+            console.log('.then of getSongRecommendation. song: ', res.data.tracks[0].name)
             
             resolve ({trackName, artistName, albumName, trackLink, albumCover, sampleLink})
             
             })
             .catch(async err => {
                 console.log('Error resolving spotifyRecommendation call ==>:', err.response.status, err.message)
-                if (err.response.status === 401 && !retried) {
-                    // get new token below on fail
+                if (err.response.status === 401 && !hasCalledGetSongRecommendationTwice) {
+                    hasCalledGetSongRecommendationTwice = true
                     try {
-                        const tokenRes = await axios.post(spotifyTokenURL, data, tokenRequestAuthOptions) 
-                        token = tokenRes.data.access_token
-                        // retry here.
-                        console.log('obtained token:', token)
+                        spotifyOAuthToken = await requestSpotifyOAuthToken(spotifyTokenURL, spotifyTokenGrantTypeParameter, tokenRequestAuthOptions) 
+                        console.log('new spotifyOAuthToken:', spotifyOAuthToken)
                     }
                     catch(err) {
-                        console.log('Error retrying spotify token request ', err.response.status)
+                        console.log('Error retrying spotifyOAuthToken request ', err.response.status)
                         return
                     }
-                    if (token !== 'not declared yet') { // doesnt account for expired token, which is what we want. we want to retry on any 401 error
-                        const retriedSongRecommendation = await getSongRecommendation({genre, danceability, energy, valence, acousticness, instrumentalness, popularity})
-                        resolve (retriedSongRecommendation)
-                    } else {
-                        console.log('still no token after token refetch. something went wrong.')
-                    }
+                    const retriedSongRecommendation = await getSongRecommendation({genre, danceability, energy, valence, acousticness, instrumentalness, popularity})
+                    resolve (retriedSongRecommendation)
                 }
             })
             .finally(() => {
-                retried = false
+                hasCalledGetSongRecommendationTwice = false
             })
     })
 }

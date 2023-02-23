@@ -4,6 +4,7 @@ import Header from './Components/Header.js';
 import MusicSection from './Components/MusicSection/MusicSection.js';
 import Filters from './Components/Filters/Filters.js';
 import { filterNames } from "./utilities/utilities.js";
+import LandingModal from './Components/LandingModal.js';
 
 function App() {
 
@@ -37,10 +38,11 @@ function App() {
         key: filterLevel[0],
         name: filterNames[i],
     }
-});
+  });
 
   return (
     <div id="app">
+      <LandingModal/>
       <Header/>
       <MusicSection
           selectedGenre={selectedGenre}

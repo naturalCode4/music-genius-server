@@ -1,7 +1,7 @@
 import React from "react"
 import { callServerForNewSong } from "../../../utilities/api.js"
 
-function NewSongButton({filterLevels, selectedGenre, setSongInfo}) {
+function NewSongButton({filterLevels, selectedGenre, setSongInfo, setGettingNewSong}) {
 
     const formattedFilters = {
         genre: selectedGenre,
@@ -14,10 +14,11 @@ function NewSongButton({filterLevels, selectedGenre, setSongInfo}) {
     }
 
     const getNewSong = async () => {
-        console.log('Getting new song!')
+        setGettingNewSong(true)
         try {
             const newSong = await callServerForNewSong(formattedFilters)
             setSongInfo(newSong.data)
+            setGettingNewSong(false)
         } catch (err) {
             console.log('Error calling getNewSong ==>:', err)
         }

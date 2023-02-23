@@ -14,10 +14,13 @@ function SongSection({filterLevels, selectedGenre}) {
         sampleLink: null
     })
 
+    const [gettingNewSong, setGettingNewSong] = useState(false)
+
     return (
         <div id="song_section">
             <SongDisplay
                 songInfo={songInfo}
+                gettingNewSong={gettingNewSong}
             />
             <AudioPanel
                 songInfo={songInfo}
@@ -26,6 +29,7 @@ function SongSection({filterLevels, selectedGenre}) {
                 filterLevels={filterLevels}
                 selectedGenre={selectedGenre}
                 setSongInfo={setSongInfo}
+                setGettingNewSong={setGettingNewSong}
             />
         </div>
     )
