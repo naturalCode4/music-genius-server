@@ -17,7 +17,6 @@ audio {
   
   audio::-webkit-media-controls-current-time-display {
     font-size: 20px;
-    color: #9586af;
     font-family: "Courier New";
   
   }

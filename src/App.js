@@ -8,7 +8,7 @@ import LandingModal from './Components/LandingModal.js';
 
 function App() {
 
-  const [selectedGenre, setSelectedGenre] = useState('chicago-house')
+  const [selectedGenre, setSelectedGenre] = useState('funk')
   const [filterLevels, setFilterLevels] = useState({
     danceability: {value: 50, disabled: true},
     energyLevel: {value: 30, disabled: false},

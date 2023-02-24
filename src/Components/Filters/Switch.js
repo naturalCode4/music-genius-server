@@ -3,7 +3,9 @@ import '../../css/Switch.css'
 
 function Switch({filterInfo, updateFilterDisabled}) {
 
-    const [leverIsOn, setLeverIsOn] = useState(true)
+    console.log(filterInfo.disabled)
+
+    const [leverIsOn, setLeverIsOn] = useState(!filterInfo.disabled)
 
     const handleSwitchChange = () => {
       updateFilterDisabled(filterInfo.key)

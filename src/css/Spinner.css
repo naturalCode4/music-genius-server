@@ -5,7 +5,7 @@
   
   @media (prefers-reduced-motion: no-preference) {
     #loading_spinner {
-      animation: spin infinite 5s linear;
+      animation: spin infinite 1.25s linear;
     }
   }
   

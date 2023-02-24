@@ -1,4 +1,4 @@
-import { Modal } from '@mui/material'
+import { Modal, ModalDialog } from '@mui/joy'
 import React, {useState} from 'react'
 
 function LandingModal() {
@@ -10,17 +10,17 @@ function LandingModal() {
             <Modal
                 open={landingModalIsOpen}
                 onClose={() => setLandingModalIsOpen(false)}
-                onBackdropClick={() => setLandingModalIsOpen(false)}
-                id="landing_modal"
-                style={{position: 'absolute', height: "50vh", margin: 'auto', width: '75vw'}}
             >
-                <div style={{ outline: 'none', border: '8px solid blue', overflow: 'hidden'}}>
-                    <h1>Welcome to Music Genius</h1>
-                    <p>Choose a musical Genre, set the 6 filter sliders, and hit “New Song” to discover music based on your preferences.</p>
-                    <p>If you don’t want a slider setting in your preferences calculation, toggle it off using the corresponding switch.</p>
-                    <p>For best results, toggling off 3 or 4 filter sliders will yield the largest collection of available songs.</p>
-                    <p>This application is programmed using React, Redux, Node.js, and it utilizes the Spotify API. The concept, design, and application was developed by Adin Kramer.</p>
-                </div>
+                <ModalDialog style={{ background: 'linear-gradient(to top, rgba(1, 141, 255, 1) 0%, #9a2020 96%)', width: '75vh' }}>
+                    <div id='modal_text'>
+                        <h1>Welcome to Music Genius</h1>
+                        <hr></hr>
+                        <p><b>Discover music based on your preferences!</b></p>
+                        <p>Choose a musical Genre, set the six filter sliders, and hit “New Song”.</p>
+                        <p>To omit filters from your song generation, toggle off the corresponding switches. For best results, toggling off 3 or 4 filter sliders will yield the largest collection of available songs.</p>
+                        <p>This application is programmed using React, Redux, Node.js, and utilizing the Spotify API. The concept, design, and codebase was developed by <a href="https://www.linkedin.com/in/adinkramer/" target="_blank" rel="noreferrer">Adin Kramer</a>.</p>
+                    </div>
+                </ModalDialog>
             </Modal>
         </div>
     )

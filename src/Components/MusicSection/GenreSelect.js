@@ -8,31 +8,34 @@ function GenreSelect({selectedGenre, setSelectedGenre}) {
 
     return (
         <div id="genre_select">
-            <p className="filter_name engraved_text">Genre</p>
+            <p id="genre_name" className="filter_name text_3D">Genre</p>
             <div
                 id="genre_dropdown"
-                onMouseEnter={() => setShowGenreDropdown(true)}
-                onMouseLeave={() => setShowGenreDropdown(false)}
             >
-                <input
-                    id="genre_select_input"
-                    type="text"
-                    value={selectedGenre}
-                    onChange={(e) => setSelectedGenre(e.target.value)}
-                    
-                />
-                {showGenreDropdown && <div id="genre_dropdown_content">
-                     <div>
-                        {genreList.map(genre => {
-                            return (
-                                <GenreSelectItem 
-                                    genre={genre} 
-                                    setSelectedGenre={setSelectedGenre} 
-                                />
-                            )
-                        })}
-                    </div>
-                </div>}
+                <div
+                    onMouseEnter={() => setShowGenreDropdown(true)}
+                    onMouseLeave={() => setShowGenreDropdown(false)}
+                >
+                    <input
+                        id="genre_select_input"
+                        type="text"
+                        value={selectedGenre}
+                        onChange={(e) => setSelectedGenre(e.target.value)}
+                        disabled
+                    />
+                    {true && <div id="genre_dropdown_content">
+                        <div>
+                            {genreList.map(genre => {
+                                return (
+                                    <GenreSelectItem 
+                                        genre={genre} 
+                                        setSelectedGenre={setSelectedGenre} 
+                                    />
+                                )
+                            })}
+                        </div>
+                    </div>}
+                </div>
             </div>
         </div>
     )
