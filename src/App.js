@@ -10,12 +10,12 @@ function App() {
 
   const [selectedGenre, setSelectedGenre] = useState('funk')
   const [filterLevels, setFilterLevels] = useState({
-    danceability: {value: 50, disabled: true},
-    energyLevel: {value: 30, disabled: false},
-    mood: {value: 50, disabled: true},
-    acousticness: {value: 50, disabled: false},
-    vocalPresence: {value: 50, disabled: true},
-    popularity: {value: 90, disabled: false},
+    danceability: {value: 85, disabled: false},
+    energyLevel: {value: 75, disabled: false},
+    mood: {value: 60, disabled: false},
+    acousticness: {value: 50, disabled: true},
+    vocalPresence: {value: 10, disabled: true},
+    popularity: {value: 90, disabled: true},
   })
 
   // can memoize/custom function with certain criteria so that all the subcomponents with any of these values dont all rerender. So only component with specific one rerenders. We'll get to that later.
