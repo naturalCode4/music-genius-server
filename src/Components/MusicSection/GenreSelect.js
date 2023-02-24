@@ -8,7 +8,7 @@ function GenreSelect({selectedGenre, setSelectedGenre}) {
 
     return (
         <div id="genre_select">
-            <p id="genre_name" className="filter_name text_3D">Genre</p>
+            <p id="genre_name" className="filter_name text_3D">GENRE</p>
             <div
                 id="genre_dropdown"
             >

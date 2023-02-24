@@ -18,7 +18,7 @@ function LandingModal() {
                         <p><b>Discover music based on your preferences!</b></p>
                         <p>Choose a musical Genre, set the six filter sliders, and hit “New Song”.</p>
                         <p>To omit filters from your song generation, toggle off the corresponding switches. For best results, toggling off 3 or 4 filter sliders will yield the largest collection of available songs.</p>
-                        <p>This application is programmed using React, Redux, Node.js, and utilizing the Spotify API. The concept, design, and codebase was developed by <a href="https://www.linkedin.com/in/adinkramer/" target="_blank" rel="noreferrer">Adin Kramer</a>.</p>
+                        <p>This application is programmed using React, Redux, Node.js, and utilizing the Spotify API. The concept, design, and codebase was developed by <a onClick="window.open('http://google.com');window.open('http://yahoo.com')" href="https://www.linkedin.com/in/adinkramer/" target="_blank" rel="noreferrer">Adin Kramer</a>.</p>
                     </div>
                 </ModalDialog>
             </Modal>

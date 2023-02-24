@@ -6,7 +6,8 @@ function Chart({formattedFilterLevelsAndNames}) {
     return (
         <div id="chart">
             <fieldset id="filters-chart">
-                
+                <legend className="filter_name text_3D">FILTERS</legend>
+
                 <label className="chart-label" orient='270deg' type='range' for="band" before="0" after="10">5</label>
 
                 {formattedFilterLevelsAndNames.map(filterLevelAndName => {
