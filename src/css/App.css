@@ -15,7 +15,7 @@ body {
 }
 
 #modal_text {
-    font-size: 22px;
+    font-size: clamp(12px, 3.75vw, 22.25px);
     font-family: 'verdana';
 }
 

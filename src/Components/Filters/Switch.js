@@ -20,7 +20,6 @@ function Switch({filterInfo, updateFilterDisabled}) {
                 type="checkbox" 
                 id={filterInfo.key}
                 className="lever pristine" 
-                // aria-checked={!leverIsOn}
                 defaultChecked={!filterInfo.disabled} 
                 onChange={handleSwitchChange}
                 />

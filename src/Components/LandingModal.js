@@ -11,7 +11,7 @@ function LandingModal() {
                 open={landingModalIsOpen}
                 onClose={() => setLandingModalIsOpen(false)}
             >
-                <ModalDialog style={{ background: 'linear-gradient(to top, rgba(1, 141, 255, 1) 0%, #9a2020 96%)', width: '75vw' }}>
+                <ModalDialog style={{ background: 'linear-gradient(to top, rgba(1, 141, 255, .8) 0%, #9a2020 96%)', width: '75vw', maxHeight: '80vh', overflow: 'scroll'}}>
                     <div id='modal_text'>
                         <h1>Welcome to Music Genius</h1>
                         <hr></hr>
